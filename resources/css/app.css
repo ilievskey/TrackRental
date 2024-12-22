@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+.carlist {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
+  gap: 2rem;
+}
+
+.title-container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  background-image: url("https://picsum.photos/id/603/1920/1080");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.detail-card {
+  background-color: rgb(24, 24, 27);
+  text-align: center;
+  border-radius: 0.5em;
+  flex: 1;
+  min-width: 9em;
+  width: 9em;
+  height: 9em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-card {
+  padding: 1em;
+  width: 100%;
+  display: flex;
+}
+.image-card img {
+  object-fit: cover;
+  border-radius: 0.5em;
+  width: 100%;
+  height: 100%;
+}
+
+.mapContainer {
+  position: relative;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.lemap {
+  width: 100%;
+  height: 300px;
+  border-radius: 1em;
+}
+
+/*# sourceMappingURL=app.css.map */
