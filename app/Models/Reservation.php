@@ -15,4 +15,14 @@ class Reservation extends Model
         'pickup_date',
         'pickup_time',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
+    }
 }

@@ -11,6 +11,11 @@ class Car extends Model
 //    protected $primaryKey = 'id';
     protected $fillable = ['make', 'model', 'seats', 'drivetrain', 'transmission', 'is_reserved'];
 
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
     /** @use HasFactory<\Database\Factories\CarFactory> */
     use HasFactory;
 }

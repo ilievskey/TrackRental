@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -11,31 +13,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin-dashboard');
-    }
+        $reservations = Reservation::with(['user', 'car'])->get();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        return view('admin-dashboard', compact('reservations'));
     }
 
     /**
@@ -59,6 +39,17 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $reservation = Reservation::with('car')->find($id);
+        $reservation->delete();
+
+        $car = Car::find($reservation->car_id);
+        $car->update(['is_reserved' => 0]);
+
+//        return response()->json([
+//            'success' => true,
+//            'message' => 'Reservation deleted.',
+//        ]);
+
+        return redirect()->route('admin-dashboard')->with('success', 'Reservation deleted.');
     }
 }

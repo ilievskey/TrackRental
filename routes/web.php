@@ -12,7 +12,11 @@ Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show')->mid
 Route::get('/cars/{id}/reserve', [ReservationController::class, 'create'])->name('reserve')->middleware('auth', 'check.reservation');
 Route::post('/cars/{id}/reserve', [ReservationController::class, 'store'])->name('reserve.store')->middleware('auth', 'check.reservation');
 
-Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('auth', 'check.admin');
+//admin stuff
+Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin-dashboard')->middleware('auth', 'check.admin');
+//Route::get('/admin-dashboard/{id}/edit', [AdminController::class, 'edit'])->name('admin-dashboard.edit')->middleware('auth', 'check.admin');
+//Route::put('/admin-dashboard/{id}', [AdminController::class, 'update'])->name('admin-dashboard.update')->middleware('auth', 'check.admin');
+Route::delete('/admin-dashboard/{id}', [AdminController::class, 'destroy'])->name('admin-dashboard.destroy')->middleware('auth', 'check.admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
