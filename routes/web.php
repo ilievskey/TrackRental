@@ -7,7 +7,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Api\CarController;
 use Illuminate\Support\Facades\Route;
 
-//main routes
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show')->middleware('check.reservation');
 Route::get('/cars/{id}/reserve', [ReservationController::class, 'create'])->name('reserve')->middleware('auth', 'check.reservation');
