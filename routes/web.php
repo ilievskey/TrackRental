@@ -12,11 +12,17 @@ Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show')->mid
 Route::get('/cars/{id}/reserve', [ReservationController::class, 'create'])->name('reserve')->middleware('auth', 'check.reservation');
 Route::post('/cars/{id}/reserve', [ReservationController::class, 'store'])->name('reserve.store')->middleware('auth', 'check.reservation');
 
-//admin stuff
+//admin main
 Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin-dashboard')->middleware('auth', 'check.admin');
 //Route::get('/admin-dashboard/{id}/edit', [AdminController::class, 'edit'])->name('admin-dashboard.edit')->middleware('auth', 'check.admin');
 //Route::put('/admin-dashboard/{id}', [AdminController::class, 'update'])->name('admin-dashboard.update')->middleware('auth', 'check.admin');
 Route::delete('/admin-dashboard/{id}', [AdminController::class, 'destroy'])->name('admin-dashboard.destroy')->middleware('auth', 'check.admin');
+//admin cars
+Route::get('/admin-cars', [AdminController::class, 'indexCar'])->name('admin-cars')->middleware('auth', 'check.admin');
+Route::delete('/admin-cars/{id}', [AdminController::class, 'destroyCar'])->name('admin-cars.destroyCar')->middleware('auth', 'check.admin');
+//admin users
+Route::get('/admin-users', [AdminController::class, 'indexUser'])->name('admin-users')->middleware('auth', 'check.admin');
+Route::delete('/admin-users/{id}', [AdminController::class, 'destroyUser'])->name('admin-users.destroyUser')->middleware('auth', 'check.admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

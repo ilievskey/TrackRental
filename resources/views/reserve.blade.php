@@ -45,7 +45,7 @@
 </main>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@vite(['resources/js/mapHandler.js', 'resources/js/popupHandler.js'])
+@vite(['resources/js/mapHandler.js', 'resources/js/reservationPopup.js'])
 @include('components.footer')
 </body>
 </html>

@@ -9,7 +9,7 @@
 </head>
 <body>
 {{--main--}}
-    @include('components.navbar')
+@include('components.navbar')
 <main class="flex flex-row h-screen">
     {{--        sidebar--}}
     <div class="w-1/4 min-w-32" style="border: 10px solid red">
@@ -30,31 +30,23 @@
     {{--        content--}}
     <div class="grow" style="border: 10px solid blue">
         <div>
-            <h1>Reservations</h1>
+            <h1>Users</h1>
             <table>
                 <thead>
                 <tr>
-                    <th>User</th>
-                    <th>Car make</th>
-                    <th>Car model</th>
-                    <th>Location</th>
-                    <th>Date</th>
-                    <th>Time</th>
+                    <th>Name</th>
+                    <th>Email</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($reservations as $reservation)
+                @foreach($users as $user)
                     <tr>
-                        <td>{{ $reservation->user->name }}</td>
-                        <td class="capitalize">{{ $reservation->car->make }}</td>
-                        <td class="capitalize">{{ $reservation->car->model }}</td>
-                        <td>{{ $reservation->pickup_location }}</td>
-                        <td>{{ $reservation->pickup_date }}</td>
-                        <td>{{ $reservation->pickup_time }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
                         <td>
-{{--                            <a href="{{ route('reserve.edit', $reservation) }}">Edit</a>--}}
-                            <button type="button" class="bg-red-300 delete-reservation" data-reservation-id="{{ $reservation->id }}">Delete</button>
+                            {{--                            <a href="{{ route('reserve.edit', $reservation) }}">Edit</a>--}}
+                            <button type="button" class="bg-red-300 delete-user" data-user-id="{{ $user->id }}">Delete</button>
                         </td>
                     </tr>
                 @endforeach
@@ -67,6 +59,6 @@
 @include('components.footer')
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@vite('resources/js/adminReservationHandler.js')
+@vite('resources/js/adminUserHandler.js')
 </body>
 </html>

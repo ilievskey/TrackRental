@@ -9,7 +9,7 @@
 </head>
 <body>
 {{--main--}}
-    @include('components.navbar')
+@include('components.navbar')
 <main class="flex flex-row h-screen">
     {{--        sidebar--}}
     <div class="w-1/4 min-w-32" style="border: 10px solid red">
@@ -30,31 +30,29 @@
     {{--        content--}}
     <div class="grow" style="border: 10px solid blue">
         <div>
-            <h1>Reservations</h1>
+            <h1>Cars</h1>
             <table>
                 <thead>
                 <tr>
-                    <th>User</th>
-                    <th>Car make</th>
-                    <th>Car model</th>
-                    <th>Location</th>
-                    <th>Date</th>
-                    <th>Time</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Seats</th>
+                    <th>Drivetrain</th>
+                    <th>Transmission</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($reservations as $reservation)
+                @foreach($cars as $car)
                     <tr>
-                        <td>{{ $reservation->user->name }}</td>
-                        <td class="capitalize">{{ $reservation->car->make }}</td>
-                        <td class="capitalize">{{ $reservation->car->model }}</td>
-                        <td>{{ $reservation->pickup_location }}</td>
-                        <td>{{ $reservation->pickup_date }}</td>
-                        <td>{{ $reservation->pickup_time }}</td>
+                        <td class="capitalize">{{ $car->make }}</td>
+                        <td class="capitalize">{{ $car->model }}</td>
+                        <td>{{ $car->seats }}</td>
+                        <td class="uppercase">{{ $car->drivetrain }}</td>
+                        <td class="capitalize">{{ $car->transmission }}</td>
                         <td>
-{{--                            <a href="{{ route('reserve.edit', $reservation) }}">Edit</a>--}}
-                            <button type="button" class="bg-red-300 delete-reservation" data-reservation-id="{{ $reservation->id }}">Delete</button>
+                            {{--                            <a href="{{ route('reserve.edit', $reservation) }}">Edit</a>--}}
+                            <button type="button" class="bg-red-300 delete-car" data-car-id="{{ $car->id }}">Delete</button>
                         </td>
                     </tr>
                 @endforeach
@@ -67,6 +65,6 @@
 @include('components.footer')
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@vite('resources/js/adminReservationHandler.js')
+@vite('resources/js/adminCarHandler.js')
 </body>
 </html>
