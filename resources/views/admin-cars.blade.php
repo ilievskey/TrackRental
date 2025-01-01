@@ -23,7 +23,7 @@
             <a href="{{ route('admin-users') }}">Manage Users</a>
         </div>
         <div>
-            <a href="{{ route('index') }}">Daily message</a>
+            <a href="{{ route('admin-daily') }}">Daily message</a>
         </div>
     </div>
 
@@ -31,6 +31,7 @@
     <div class="grow" style="border: 10px solid blue">
         <div>
             <h1>Cars</h1>
+            <button type="button" class="bg-green-300 add-car">Add car</button>
             <table>
                 <thead>
                 <tr>

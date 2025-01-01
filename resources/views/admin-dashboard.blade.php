@@ -23,7 +23,7 @@
             <a href="{{ route('admin-users') }}">Manage Users</a>
         </div>
         <div>
-            <a href="{{ route('index') }}">Daily message</a>
+            <a href="{{ route('admin-daily') }}">Daily message</a>
         </div>
     </div>
 

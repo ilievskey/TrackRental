@@ -20,9 +20,12 @@ Route::delete('/admin-dashboard/{id}', [AdminController::class, 'destroy'])->nam
 //admin cars
 Route::get('/admin-cars', [AdminController::class, 'indexCar'])->name('admin-cars')->middleware('auth', 'check.admin');
 Route::delete('/admin-cars/{id}', [AdminController::class, 'destroyCar'])->name('admin-cars.destroyCar')->middleware('auth', 'check.admin');
+Route::post('/admin-cars/', [AdminController::class, 'storeCar'])->name('admin-cars.storeCar')->middleware('auth', 'check.admin');
 //admin users
 Route::get('/admin-users', [AdminController::class, 'indexUser'])->name('admin-users')->middleware('auth', 'check.admin');
 Route::delete('/admin-users/{id}', [AdminController::class, 'destroyUser'])->name('admin-users.destroyUser')->middleware('auth', 'check.admin');
+//admin daily message
+Route::get('/admin-daily', [AdminController::class, 'dailyMessage'])->name('admin-daily')->middleware('auth', 'check.admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

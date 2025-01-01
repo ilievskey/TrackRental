@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+
+    public function dailyMessage()
+    {
+        return view('admin-daily');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -34,6 +39,31 @@ class AdminController extends Controller
         return view('admin-users', compact('users'));
     }
 
+    public function storeCar(Request $request)
+    {
+        try{
+            $validatedData = $request->validate([
+                'make' => 'required|string|max:255',
+                'model' => 'required|string|max:255',
+                'seats' => 'required|integer|min:1',
+                'drivetrain' => 'required|in:fwd,rwd,awd',
+                'transmission' => 'required|in:manual,auto',
+            ]);
+
+            $car = Car::create($validatedData);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Car added successfully!',
+                'car' => $car,
+            ]);
+        } catch (\Exception $e){
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      */

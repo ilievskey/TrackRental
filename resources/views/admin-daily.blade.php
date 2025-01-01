@@ -23,35 +23,15 @@
             <a href="{{ route('admin-users') }}">Manage Users</a>
         </div>
         <div>
-            <a href="{{ route('admin-daily') }}">Daily message</a>
+            <a href="{{ route('index') }}">Daily message</a>
         </div>
     </div>
 
     {{--        content--}}
     <div class="grow" style="border: 10px solid blue">
         <div>
-            <h1>Users</h1>
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($users as $user)
-                    <tr>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>
-                            {{--                            <a href="{{ route('reserve.edit', $reservation) }}">Edit</a>--}}
-                            <button type="button" class="bg-red-300 delete-user" data-user-id="{{ $user->id }}">Delete</button>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+            <h1>Daily message</h1>
+            <p>Let site visitors be greeted by a message</p>
         </div>
     </div>
 </main>
