@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Track Rental</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 {{--######################## ASIDE--}}
