@@ -40,6 +40,7 @@
 
 </script>
 
-@vite('resources/js/script.js')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@vite(['resources/js/script.js', 'resources/js/message.js'])
 </body>
 </html>

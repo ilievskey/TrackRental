@@ -23,7 +23,7 @@
             <a href="{{ route('admin-users') }}">Manage Users</a>
         </div>
         <div>
-            <a href="{{ route('admin-daily') }}">Daily message</a>
+            <a href="{{ route('admin-message') }}">Daily message</a>
         </div>
     </div>
 
@@ -51,6 +51,10 @@
                         <td>{{ $car->seats }}</td>
                         <td class="uppercase">{{ $car->drivetrain }}</td>
                         <td class="capitalize">{{ $car->transmission }}</td>
+                        <td>
+                            {{--                            <a href="{{ route('reserve.edit', $reservation) }}">Edit</a>--}}
+                            <button type="button" class="bg-yellow-300 edit-car" data-car-id="{{ $car->id }}">Edit</button>
+                        </td>
                         <td>
                             {{--                            <a href="{{ route('reserve.edit', $reservation) }}">Edit</a>--}}
                             <button type="button" class="bg-red-300 delete-car" data-car-id="{{ $car->id }}">Delete</button>

@@ -10,9 +10,25 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
 
-    public function dailyMessage()
+    public function adminMessage()
     {
-        return view('admin-daily');
+        return view('admin-message');
+    }
+
+    public function storeMessage(Request $request)
+    {
+        $request->validate([
+            'message' => 'required|string'
+        ]);
+
+        \DB::table('admin_message')->truncate();
+        \DB::table('admin_message')->insert([
+            'content' => $request->message,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return redirect()->back()->with('success', 'Message set!');
     }
     /**
      * Display a listing of the resource.
@@ -64,12 +80,16 @@ class AdminController extends Controller
             ], 500);
         }
     }
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+
+    public function showCarForUpdate(string $id)
     {
-        //
+        try {
+            $car = Car::findOrFail($id);
+            return response()->json($car);
+
+        } catch (\Exception $e){
+            return response()->json(['message' => $e->getMessage(), 500]);
+        }
     }
 
     /**
@@ -78,6 +98,34 @@ class AdminController extends Controller
     public function update(Request $request, string $id)
     {
         //
+    }
+
+    public function updateCar(Request $request, string $id)
+    {
+        try{
+            $validatedData = $request->validate([
+                'make' => 'required|string|max:255',
+                'model' => 'required|string|max:255',
+                'seats' => 'required|integer|min:1',
+                'drivetrain' => 'required|in:fwd,rwd,awd',
+                'transmission' => 'required|in:manual,auto'
+            ]);
+
+            $car = Car::findOrFail($id);
+            $car->update($validatedData);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Car updated successfully!',
+                'car' => $car
+            ]);
+
+        } catch (\Exception $e){
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 
     /**

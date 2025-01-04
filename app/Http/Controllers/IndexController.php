@@ -19,4 +19,9 @@ class IndexController extends Controller
         return view('index', compact('cars', 'makes', 'maxSeats'));
     }
 
+    public function getMessage(){
+        $message = \DB::table('admin_message')->latest()->first();
+        return response()->json($message);
+    }
+
 }

@@ -23,7 +23,7 @@
             <a href="{{ route('admin-users') }}">Manage Users</a>
         </div>
         <div>
-            <a href="{{ route('index') }}">Daily message</a>
+            <a href="{{ route('admin-message') }}">Daily message</a>
         </div>
     </div>
 
@@ -32,6 +32,13 @@
         <div>
             <h1>Daily message</h1>
             <p>Let site visitors be greeted by a message</p>
+        </div>
+        <div>
+            <form action="{{ route('admin-message.store') }}" method="POST">
+                @csrf
+                <textarea name="message" required></textarea>
+                <button type="submit">Set message</button>
+            </form>
         </div>
     </div>
 </main>
