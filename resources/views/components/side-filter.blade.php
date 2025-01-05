@@ -1,4 +1,4 @@
-<aside id="sidebar" class="fixed h-screen inset-y-0 left-0 transform -translate-x-full md:translate-x-0 w-64 bg-white shadow-lg z-30 transition-transform duration-300 fixed md:translate-x-0">
+<aside id="sidebar" class="fixed h-screen inset-y-0 left-0 transform -translate-x-full md:translate-x-0 w-64 bg-white shadow-lg z-30 transition-transform duration-300">
     <div class="p-4 border-b border-gray-200">
         <h2 class="text-lg font-semibold">Filter</h2>
     </div>
@@ -23,19 +23,19 @@
 
         <div class="py-1">
             <h2>Transmission</h2>
-            <input type="checkbox" name="transmission" id="automatic" value="automatic">
+            <input type="radio" name="transmission" id="automatic" value="auto">
             <label for="automatic">Automatic</label>
-            <input type="checkbox" name="transmission" id="manual" value="manual">
+            <input type="radio" name="transmission" id="manual" value="manual">
             <label for="manual">Manual</label>
         </div>
 
         <div class="py-1">
             <h2>Drivetrain</h2>
-            <input type="checkbox" name="drivetrain" id="fwd" value="fwd">
+            <input type="radio" name="drivetrain" id="fwd" value="fwd">
             <label for="fwd">FWD</label>
-            <input type="checkbox" name="drivetrain" id="awd" value="awd">
+            <input type="radio" name="drivetrain" id="awd" value="awd">
             <label for="awd">AWD</label>
-            <input type="checkbox" name="drivetrain" id="rwd" value="rwd">
+            <input type="radio" name="drivetrain" id="rwd" value="rwd">
             <label for="rwd">RWD</label>
         </div>
     </nav>

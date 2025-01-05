@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
             confirmButtonColor: '#083344',
             cancelButtonColor: '#d33',
             preConfirm: () => {
-                const make = document.getElementById('car-make').value;
-                const model = document.getElementById('car-model').value;
+                const make = document.getElementById('car-make').value.toLowerCase();
+                const model = document.getElementById('car-model').value.toLowerCase();
                 const seats = document.getElementById('car-seats').value;
                 const drivetrain = document.getElementById('car-drivetrain').value;
                 const transmission = document.getElementById('car-transmission').value;
