@@ -8,7 +8,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-@include('components.navbar')
+<header>
+    @include('layouts.navigation')
+</header>
 
 <main>
     <form id="reserve-form" action="{{route('reserve.store', $car)}}" method="post" data-url="{{route('reserve.store', $car->id)}}">

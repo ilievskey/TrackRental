@@ -9,7 +9,9 @@
 </head>
 <body>
 {{--main--}}
-    @include('components.navbar')
+<header>
+    @include('layouts.navigation')
+</header>
 <main class="flex flex-row h-screen">
     {{--        sidebar--}}
     <div class="w-1/4 min-w-32" style="border: 10px solid red">

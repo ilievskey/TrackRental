@@ -7,11 +7,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-{{--######################## ASIDE--}}
-@include('components.side-filter')
+<header>
+    @include('layouts.navigation')
+</header>
 {{--main--}}
 <div class="flex-1 flex flex-col min-h-screen md:pl-64">
-    @include('components.navbar')
+    @include('components.side-filter')
 
 
     {{--    ###################### ACTUAL MAIN ######################--}}

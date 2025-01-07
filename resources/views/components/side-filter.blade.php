@@ -1,5 +1,5 @@
 <aside id="sidebar" class="fixed h-screen inset-y-0 left-0 transform -translate-x-full md:translate-x-0 w-64 bg-white shadow-lg z-30 transition-transform duration-300">
-    <div class="p-4 border-b border-gray-200">
+    <div class="p-4 border-gray-200">
         <h2 class="text-lg font-semibold">Filter</h2>
     </div>
     <nav class="p-4">

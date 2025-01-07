@@ -7,7 +7,9 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-@include('components.navbar')
+<header>
+    @include('layouts.navigation')
+</header>
 
 <main>
     <div class="flex flex-col">

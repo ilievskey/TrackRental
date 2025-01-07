@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\CheckReservation;
+use App\Http\Middleware\NoDashboard;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -14,7 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias(['check.reservation' => CheckReservation::class, 'check.admin' => CheckAdmin::class]);
+        $middleware->alias(['check.reservation' => CheckReservation::class, 'check.admin' => CheckAdmin::class, 'no.dashboard' => NoDashboard::class]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

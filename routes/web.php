@@ -37,7 +37,7 @@ Route::post('/admin-message', [AdminController::class, 'storeMessage'])->name('a
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'no.dashboard'])->name('dashboard');
 
 Route::get('/logout', function () {
     return redirect('/');
