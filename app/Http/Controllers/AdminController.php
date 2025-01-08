@@ -12,7 +12,8 @@ class AdminController extends Controller
 
     public function adminMessage()
     {
-        return view('admin-message');
+        $message = \DB::table('admin_message')->get();
+        return view('admin-message', compact('message'));
     }
 
     public function storeMessage(Request $request)
@@ -29,6 +30,30 @@ class AdminController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Message set!');
+    }
+
+    public function destroyMessage(string $id)
+    {
+        try{
+            $deleted = \DB::table('admin_message')->where('id', $id)->delete();
+
+            if($deleted){
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Message removed.',
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Message not found.',
+                ], 404);
+            }
+        } catch (\Exception $e){
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
     /**
      * Display a listing of the resource.

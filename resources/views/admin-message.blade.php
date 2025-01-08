@@ -36,10 +36,23 @@
             <p>Let site visitors be greeted by a message</p>
         </div>
         <div>
+            <p>Current message:</p>
+            @if($message && $message->isNotEmpty())
+                @foreach($message as $msg)
+                    <p class="font-bold">{{$msg->content}}</p>
+                    <button class="bg-red-300 clear-message" type="button" data-message-id="{{ $msg->id }}">Clear message</button>
+                @endforeach
+            @else
+                <p class="text-zinc-400">There is no message set.</p>
+            @endif
+        </div>
+        <div>
             <form action="{{ route('admin-message.store') }}" method="POST">
                 @csrf
                 <textarea name="message" required></textarea>
-                <button type="submit">Set message</button>
+                <div>
+                    <button class="bg-green-300" type="submit">Set message</button>
+                </div>
             </form>
         </div>
     </div>
@@ -48,6 +61,6 @@
 @include('components.footer')
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@vite('resources/js/adminUserHandler.js')
+@vite('resources/js/adminMessageHandler.js')
 </body>
 </html>

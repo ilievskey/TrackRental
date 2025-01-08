@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function (){
-    console.log('message activated');
     let dismissedMessage = sessionStorage.getItem('dismissedMessage');
 
     fetch('/message')

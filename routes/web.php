@@ -21,7 +21,7 @@ Route::delete('/admin-dashboard/{id}', [AdminController::class, 'destroy'])->nam
 
 //admin cars
 Route::get('/admin-cars', [AdminController::class, 'indexCar'])->name('admin-cars')->middleware('auth', 'check.admin');
-Route::post('/admin-cars/', [AdminController::class, 'storeCar'])->name('admin-cars.storeCar')->middleware('auth', 'check.admin');
+Route::post('/admin-cars', [AdminController::class, 'storeCar'])->name('admin-cars.storeCar')->middleware('auth', 'check.admin');
 Route::delete('/admin-cars/{id}', [AdminController::class, 'destroyCar'])->name('admin-cars.destroyCar')->middleware('auth', 'check.admin');
 
 Route::get('admin-cars/{id}', [AdminController::class, 'showCarForUpdate'])->name('admin-car.showCarForUpdate')->middleware('auth', 'check.admin');
@@ -34,6 +34,7 @@ Route::delete('/admin-users/{id}', [AdminController::class, 'destroyUser'])->nam
 //admin message
 Route::get('/admin-message', [AdminController::class, 'adminMessage'])->name('admin-message')->middleware('auth', 'check.admin');
 Route::post('/admin-message', [AdminController::class, 'storeMessage'])->name('admin-message.store')->middleware('auth', 'check.admin');
+Route::delete('/admin-message/{id}', [AdminController::class, 'destroyMessage'])->name('admin-message.destroyMessage')->middleware('auth', 'check.admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
