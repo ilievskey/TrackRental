@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     carElement.className = 'bg-white rounded-lg shadow-md';
                     if(car.is_reserved){
                         carElement.innerHTML = `
-                        <div class="max-w-sm w-full h-full rounded overflow-hidden shadow-lg flex flex-col">
-                            <div class="h-40">
+                        <div class="max-w-sm w-full h-full rounded overflow-hidden shadow-lg flex flex-col bg-gray-200">
+                            <div class="h-40 blur-md">
                                 <img class="w-full h-full object-cover" src="https://cdn.motor1.com/images/mgl/6ZNqmZ/s3/2024-toyota-gr-yaris.jpg" alt="car"/>
                             </div>
                             <div class="px-6 py-4 flex flex-col flex-grow justify-between">
