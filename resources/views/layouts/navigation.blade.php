@@ -41,6 +41,10 @@
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ __('Reservations') }}
+                            </x-dropdown-link>
+
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -109,6 +113,10 @@
 
                     <x-responsive-nav-link :href="auth()->user()->email === 'admin@admin.com' ? route('admin-dashboard') : route('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-responsive-nav-link>
+
+                    <x-responsive-nav-link :href="route('profile.edit')">
+                        {{ __('Reservations') }}
                     </x-responsive-nav-link>
 
                     <!-- Authentication -->
