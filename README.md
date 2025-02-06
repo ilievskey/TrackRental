@@ -37,7 +37,6 @@ This is a track car rental project. Reserve your cars for your track day.
 - Make sure you have node.js installed
 - Make sure you have npm installed
 - Make sure you have composer installed
-- If you are using XAMPP make sure to move the project in the htdocs folder
 
 ## Installation
 - Navigate to the root folder of the project in your console or terminal
