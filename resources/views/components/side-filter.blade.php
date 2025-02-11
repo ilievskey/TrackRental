@@ -38,5 +38,9 @@
             <input type="radio" name="drivetrain" id="rwd" value="rwd">
             <label for="rwd">RWD</label>
         </div>
+
+        <div class="py-2">
+            <button id="resetFilters" type="button" class="bg-gray-300 px-4 py-2 rounded">Reset</button>
+        </div>
     </nav>
 </aside>

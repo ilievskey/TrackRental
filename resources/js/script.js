@@ -3,14 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const seatsFilter = document.getElementById('filter-seats-slider');
     const drivetrainFilter = document.getElementsByName('drivetrain');
     const transmissionFilter = document.getElementsByName('transmission');
+    const resetButton = document.getElementById('resetFilters');
+
 
     seatsValueUpdater(seatsFilter.value);
 
     const fetchFilters = () => {
         const make = makeFilter.value;
         const seats = seatsFilter.value;
-        const drivetrain = Array.from(drivetrainFilter).filter(cb => cb.checked).map(cb =>cb.value);
-        const transmission = Array.from(transmissionFilter).filter(cb => cb.checked).map(cb => cb.value);
+        let drivetrain = Array.from(drivetrainFilter)
+            .filter(cb => cb.checked)
+            .map(cb =>cb.value);
+        let transmission = Array.from(transmissionFilter)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
+
 
         const parameters = new URLSearchParams();
         if(make) parameters.append('make', make);
@@ -65,6 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
     seatsFilter.addEventListener('change', fetchFilters);
     Array.from(drivetrainFilter).forEach(cb => cb.addEventListener('change', fetchFilters));
     Array.from(transmissionFilter).forEach(cb => cb.addEventListener('change', fetchFilters));
+
+    resetButton.addEventListener('click', () => {
+        makeFilter.value = '';
+        seatsFilter.value = 0;
+        Array.from(drivetrainFilter).forEach(cb => cb.checked = false);
+        Array.from(transmissionFilter).forEach(cb => cb.checked = false);
+        fetchFilters();
+    });
 
     fetchFilters();
 });
