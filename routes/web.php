@@ -5,6 +5,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Api\CarController;
+use App\Http\Controllers\UserReservationController;
 use Illuminate\Support\Facades\Route;
 
 //index
@@ -36,9 +37,11 @@ Route::get('/admin-message', [AdminController::class, 'adminMessage'])->name('ad
 Route::post('/admin-message', [AdminController::class, 'storeMessage'])->name('admin-message.store')->middleware('auth', 'check.admin');
 Route::delete('/admin-message/{id}', [AdminController::class, 'destroyMessage'])->name('admin-message.destroyMessage')->middleware('auth', 'check.admin');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified', 'no.dashboard'])->name('dashboard');
+//Route::get('/reservations', function () {
+//    return view('dashboard'); //this is reservations
+//})->middleware(['auth', 'verified', 'no.dashboard'])->name('dashboard');
+
+Route::get('/reservations', [UserReservationController::class, 'index'])->name('dashboard')->middleware('auth', 'verified', 'no.dashboard');
 
 Route::get('/logout', function () {
     return redirect('/');
