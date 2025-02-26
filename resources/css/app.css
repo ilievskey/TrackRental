@@ -64,4 +64,27 @@ body {
   border-radius: 1em;
 }
 
+.min-h-screen-755rem {
+  min-height: calc(100vh - 7.55rem);
+}
+
+.admin-option {
+  text-align: center;
+  padding: 1em;
+  border-radius: 1em;
+  width: 80%;
+  background: #cbd4e3;
+  margin: 0.5em auto;
+}
+.admin-option:hover {
+  cursor: pointer;
+  background: #9ca3af;
+}
+
+.admin-bg {
+  padding: 1em;
+  border-radius: 1em;
+  background: #cbd4e3;
+}
+
 /*# sourceMappingURL=app.css.map */

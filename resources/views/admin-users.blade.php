@@ -12,26 +12,18 @@
 <header>
     @include('layouts.navigation')
 </header>
-<main class="flex flex-row h-screen">
+<main class="flex flex-row min-h-screen-755rem">
     {{--        sidebar--}}
-    <div class="w-1/4 min-w-32" style="border: 10px solid red">
-        <div>
-            <a href="{{ route('admin-dashboard') }}">Reservations</a>
-        </div>
-        <div>
-            <a href="{{ route('admin-cars') }}">Manage Cars</a>
-        </div>
-        <div>
-            <a href="{{ route('admin-users') }}">Manage Users</a>
-        </div>
-        <div>
-            <a href="{{ route('admin-message') }}">Daily message</a>
-        </div>
+    <div class="w-1/4 min-w-32 flex flex-col place-items-center justify-center">
+        <a href="{{ route('admin-dashboard') }}" class="admin-option">Reservations</a>
+        <a href="{{ route('admin-cars') }}" class="admin-option">Manage Cars</a>
+        <a href="{{ route('admin-users') }}" class="admin-option">Manage Users</a>
+        <a href="{{ route('admin-message') }}" class="admin-option">Daily message</a>
     </div>
 
     {{--        content--}}
-    <div class="grow" style="border: 10px solid blue">
-        <div>
+    <div class="grow p-8">
+        <div class="admin-bg">
             <h1>Users</h1>
             <table>
                 <thead>
